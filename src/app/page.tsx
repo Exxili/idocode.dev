@@ -4,7 +4,7 @@ import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { Inter } from "next/font/google";
-import MacBackground from "@/app/components/background";
+import MacBackground from "@/components/background";
 
 const inter = Inter({ subsets: ["latin"] });
 

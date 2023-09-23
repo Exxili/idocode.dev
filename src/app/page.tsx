@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
+import { Inter } from "next/font/google";
+import MacBackground from "@/app/components/background";
+
+const inter = Inter({ subsets: ["latin"] });
 
 function PostCard(post: Post) {
   return (
@@ -8,7 +14,7 @@ function PostCard(post: Post) {
       <h2 className="mb-1 text-xl">
         <Link
           href={post.url}
-          className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
+          className="bg-red-500 text-blue-700 hover:text-blue-900 dark:text-blue-400"
         >
           {post.title}
         </Link>
@@ -24,17 +30,31 @@ function PostCard(post: Post) {
   );
 }
 
-export default function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
+// export default function Home() {
+//   // const posts = allPosts.sort((a, b) =>
+//   //   compareDesc(new Date(a.date), new Date(b.date))
+//   // );
 
+//   return (
+//     <div>
+//       <Header />
+
+//       {/* {posts.map((post, idx) => (
+//         <PostCard key={idx} {...post} />
+//       ))} */}
+//     </div>
+//   );
+// }
+
+export default function Home() {
   return (
-    <div className="mx-auto max-w-xl py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">Hello World</h1>
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
-      ))}
+    <div className="h-full">
+      <MacBackground />
+
+      <div className="flex flex-col justify-center items-center align-center text-black h-full w-full">
+        <div className={`${inter.className} text-3xl`}>Coming Soon</div>
+        <div className={`${inter.className} text-sm`}>IDoCode.dev</div>
+      </div>
     </div>
   );
 }

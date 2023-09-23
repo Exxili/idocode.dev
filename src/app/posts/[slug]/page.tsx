@@ -1,5 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import Wave from "@/app/components/wave";
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
@@ -16,6 +17,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
   return (
     <article className="mx-auto max-w-xl py-8">
+      <Wave />
       <div className="mb-8 text-center">
         <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
           {format(parseISO(post.date), "LLLL d, yyyy")}

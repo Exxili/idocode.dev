@@ -1,4 +1,4 @@
-import "@/app/styles/mac-background.css";
+import "@/styles/mac-background.css";
 
 export default function MacBackground() {
   return (
